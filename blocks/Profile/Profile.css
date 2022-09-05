@@ -1,0 +1,10 @@
+.Profile{
+	display: flex;
+	margin-top: 40px;
+	max-width: 100%;
+}
+@media screen and (max-width:320px) {
+    .Profile {
+		display: block;
+    }
+} 

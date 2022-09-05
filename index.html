@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <link rel="stylesheet" href="./pages/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Место</title>
+</head>
+
+<body class="page">
+  <div class="popup">
+    <form class="popup__container">
+      <h2 class="popup__header">Редактировать профиль</h2>
+      <input class="popup__name" type="text" value=""/>
+      <input class="popup__label" type="text" value=""/>
+      <input class="popup__save" type="submit" value="Сохранить"/>
+      <img class="popup__close" src="./images/close.svg" alt="Закрыть"/>
+    </form>
+  </div>
+  <header class="header">
+    <img class="header__logo" src="./images/mesto.svg" alt="место"/>
+    <div class="Line"></div>
+  </header>
+  <main class="content">
+    <section class="Profile">
+      <img class="Profile__avatar" src="./images/Avatar.png" alt="Кусто"/>
+      <div class="ProfileInfo">
+        <h1 class="ProfileInfo__header">Жак-Ив Кусто</h1>
+        <img class="ProfileInfo__EditButton" src="./images/Edit_Button.svg" alt="Редактировать"/>
+        <p class="ProfileInfo__description">Исследователь океана</p>
+      </div>
+      <img class="Profile__addButton" src="./images/Add.svg" alt="Добавить"/>
+    </section>
+    <section class="Elements">
+      <div class="Element">
+        <img class="Element__place" src="./images/Gavana.jpg" alt="Гавана"/>
+        <div class="label">
+          <p class="label__caption">Гавана</p>
+          <img class="label__img" src="./images/like.svg" alt="Лайк"/>
+        </div>
+      </div>
+      <div class="Element">
+        <img class="Element__place" src="./images/Hallstat.jpg" alt="Гальштат"/>
+        <div class="label">
+          <p class="label__caption">Гальштат</p>
+          <img class="label__img" src="./images/like.svg" alt="Лайк"/>
+        </div>
+      </div>
+      <div class="Element">
+        <img class="Element__place" src="./images/Kiji.jpg" alt="Кижи"/>
+        <div class="label">
+          <p class="label__caption">Кижи</p>
+          <img class="label__img" src="./images/like.svg" alt="Лайк"/>
+        </div>
+      </div>
+      <div class="Element">
+        <img class="Element__place" src="./images/Kukulkana.jpg" alt="Кукулькана"/>
+        <div class="label">
+          <p class="label__caption">Пирамида Кукулькана</p>
+          <img class="label__img" src="./images/like.svg" alt="Лайк"/>
+        </div>
+      </div>
+      <div class="Element">
+        <img class="Element__place" src="./images/maldives.jpg" alt="Мальдивы"/>
+        <div class="label">
+          <p class="label__caption">Мальдивы</p>
+          <img class="label__img" src="./images/like.svg" alt="Лайк"/>
+        </div>
+      </div>
+      <div class="Element">
+        <img class="Element__place" src="./images/Santorini.jpg" alt="Санторини"/>
+        <div class="label">
+          <p class="label__caption">Санторини</p>
+          <img class="label__img" src="./images/like.svg" alt="Лайк"/>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="Footer">
+    <p class="Footer__copyright">© 2022 Шипелин Егор</p>
+  </footer>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

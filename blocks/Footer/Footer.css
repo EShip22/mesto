@@ -1,0 +1,20 @@
+.Footer {
+	max-width: calc(100% - 2*200px);
+	margin: 67px auto 60px;
+}
+
+@media screen and (min-width:751px) and (max-width:1280px) {
+    .Footer {
+		max-width: calc(100% - 2*50px);
+    }
+}
+@media screen and (max-width:750px) {
+    .Footer {
+		max-width: calc(100% - 2*20px);
+    }
+} 
+@media screen and (max-width:320px) {
+    .Footer {
+		margin: 48px auto 36px;
+    }
+} 

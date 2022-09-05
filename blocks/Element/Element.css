@@ -1,0 +1,19 @@
+.Element {
+	max-width: 282px;
+	background-color: #FFFFFF;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	border-radius: 3%;
+}
+@media screen and (max-width:321px) {
+    .Element {
+		margin-top: 20px;
+    }
+} 
+
+@media screen and (max-width:321px) {
+    .Element:first-child {
+		margin-top: 36px;
+    }
+} 

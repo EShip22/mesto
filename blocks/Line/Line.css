@@ -1,0 +1,10 @@
+.Line{
+	border: 1px solid #545454;
+	margin-top: 41px;
+}
+
+@media screen and (max-width:320px) {
+    .Line {
+		margin-top: 31px;
+    }
+} 

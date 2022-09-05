@@ -1,0 +1,17 @@
+.ProfileInfo__EditButton{
+	display: inline-block;
+	margin-left: 18px;
+	transition: opacity 0.4s linear;
+	margin-bottom: 10px;
+}
+.ProfileInfo__EditButton:hover{
+	cursor: pointer;
+	opacity: 0.6;
+}
+@media screen and (max-width:320px) {
+    .ProfileInfo__EditButton {
+		margin-left: 10px;
+		width: 18px;
+		height: 18px;
+    }
+} 
