@@ -1,6 +1,6 @@
-.popup__label {
+.edit_profile_form__input {
 	width: 358px;
-	margin: 30px 0 0 36px;
+	margin: 0 0 30px 36px;
 	padding-bottom: 13px;
 	font-weight: 400;
 	font-size: 14px;
@@ -11,7 +11,9 @@
 }
 
 @media screen and (max-width:321px) {
-    .popup__label {
+    .edit_profile_form__input {
+		font-size: 14px;
+		line-height: 17px;
 		margin: 30px 0 0 22px;
     }
 } 

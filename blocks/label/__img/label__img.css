@@ -1,7 +1,0 @@
-.label__img {
-	transition: opacity 0.4s linear;
-}
-.label__img:hover {
-	opacity: 0.5;
-	cursor: pointer;
-}

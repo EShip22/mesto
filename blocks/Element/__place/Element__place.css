@@ -1,4 +1,5 @@
 .Element__place {
 	object-fit: cover;
     width: 100%;
+	min-height: 282px;
 }

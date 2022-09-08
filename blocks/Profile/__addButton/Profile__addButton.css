@@ -2,11 +2,18 @@
 	margin: 35px 0 35px auto;
 	display: block;
 	border: 2px solid #FFFFFF;
-	box-sizing: content-box;
+	box-sizing: border-box;
 	object-fit: none;
-	width: 150px;
-	height: 50px;
+	min-width: 150px;
+	min-height: 50px;
 	transition: opacity 0.4s linear;
+	background-image: url('../../../images/Add.svg');
+	background-size: 22px 22px;
+	background-position: center;
+	background-color: #000000;
+	border: 1px solid #FFFFFF;
+	background-repeat: no-repeat;
+	padding: 0;
 }
 
 .Profile__addButton:hover {
@@ -17,7 +24,8 @@
 @media screen and (max-width:321px) {
     .Profile__addButton {
 		margin: 35px auto 0;
-		width: 282px;
-		height: 50px;
+		min-width: 282px;
+		min-height: 50px;
+		background-size: 16px 16px;
     }
 }

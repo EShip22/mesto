@@ -1,17 +1,21 @@
-.popup__close {
+.edit_profile_form__close {
+	background-image: url('../../../images/close.svg');
+	background-size: contain;
     top: -40px;
     right: -40px;
     position: absolute;
 	transition: opacity 0.4s linear;
+	width: 32px;
+	height: 32px;
 }
 
-.popup__close:hover {
+.edit_profile_form__close:hover {
 	opacity: 0.6;
 	cursor: pointer;
 }
 
 @media screen and (max-width:321px) {
-    .popup__close {
+    .edit_profile_form__close {
 		width: 20px;
 		height: 20px;
 		top: -36px;
