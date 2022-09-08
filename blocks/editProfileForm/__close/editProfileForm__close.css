@@ -1,4 +1,4 @@
-.edit_profile_form__close {
+.editProfileForm__close {
 	background-image: url('../../../images/close.svg');
 	background-size: contain;
     top: -40px;
@@ -9,13 +9,13 @@
 	height: 32px;
 }
 
-.edit_profile_form__close:hover {
+.editProfileForm__close:hover {
 	opacity: 0.6;
 	cursor: pointer;
 }
 
 @media screen and (max-width:321px) {
-    .edit_profile_form__close {
+    .editProfileForm__close {
 		width: 20px;
 		height: 20px;
 		top: -36px;

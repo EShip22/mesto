@@ -17,11 +17,11 @@
 @import url(../blocks/popup/__label/popup__label.css);
 
 
-/*edit_profile_form*/
-@import url(../blocks/edit_profile_form/__header/edit_profile_form__header.css);
-@import url(../blocks/edit_profile_form/__input/edit_profile_form__input.css);
-@import url(../blocks/edit_profile_form/__save/edit_profile_form__save.css);
-@import url(../blocks/edit_profile_form/__close/edit_profile_form__close.css);
+/*editProfileForm*/
+@import url(../blocks/editProfileForm/__header/editProfileForm__header.css);
+@import url(../blocks/editProfileForm/__input/editProfileForm__input.css);
+@import url(../blocks/editProfileForm/__save/editProfileForm__save.css);
+@import url(../blocks/editProfileForm/__close/editProfileForm__close.css);
 /*content*/
 @import url(../blocks/content/content.css);
 /*Line*/

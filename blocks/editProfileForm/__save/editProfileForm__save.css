@@ -1,4 +1,4 @@
-.edit_profile_form__save {
+.editProfileForm__save {
 	display: block;
 	width: 358px;
 	margin: 18px auto 37px;
@@ -14,13 +14,13 @@
 	border-radius: 2px;
 	border: none;
 }
-.edit_profile_form__save:hover {
+.editProfileForm__save:hover {
 	cursor: pointer;
 	opacity: 0.8;
 }
 
 @media screen and (max-width:321px) {
-    .edit_profile_form__save {
+    .editProfileForm__save {
 		width: 238px;
 		margin: 45px auto 25px;
 		padding-bottom: 14px;
