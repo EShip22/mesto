@@ -1,19 +1,16 @@
-.Element {
-	max-width: 282px;
+.element {
+	max-width: 100%;
 	background-color: #FFFFFF;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
 	border-radius: 3%;
 }
-@media screen and (max-width:321px) {
-    .Element {
+@media screen and (max-width:575px) {
+    .element {
 		margin-top: 20px;
     }
-} 
-
-@media screen and (max-width:321px) {
-    .Element:first-child {
+    .element:first-child {
 		margin-top: 36px;
     }
 } 

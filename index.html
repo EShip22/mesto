@@ -13,74 +13,73 @@
     <img class="header__logo" src="./images/mesto.svg" alt="место"/>
   </header>
   <main class="content">
-    <section class="Profile">
-      <img class="Profile__avatar" src="./images/Avatar.png" alt="Кусто"/>
-      <div class="ProfileInfo">
-        <h1 class="ProfileInfo__header">Жак-Ив Кусто</h1>
-        <button class="ProfileInfo__EditButton"></button>
-        <p class="ProfileInfo__description">Исследователь океана</p>
+    <section class="profile">
+      <img class="profile__avatar" src="./images/Avatar.png" alt="Кусто"/>
+      <div class="profile-info">
+        <h1 class="profile-info__header">Жак-Ив Кусто</h1>
+        <button class="profile-info__edit-button" type="button"></button>
+        <p class="profile-info__description">Исследователь океана</p>
       </div>
-      <button class="Profile__addButton"></button>
+      <button class="profile__add-button" type="button"></button>
     </section>
-    <section class="Elements">
-      <div class="Element">
-        <img class="Element__place" src="./images/Gavana.jpg" alt="Гавана"/>
-        <div class="Element__title">
-          <h2 class="Element__caption">Гавана</h2>
-          <button class="Element__img"></button>
+    <section class="elements">
+      <div class="element">
+        <img class="element__place" src="./images/Gavana.jpg" alt="Гавана"/>
+        <div class="element__title">
+          <h2 class="element__caption">Гавана</h2>
+          <button class="element__img" type="button"></button>
         </div>
       </div>
-      <div class="Element">
-        <img class="Element__place" src="./images/Hallstat.jpg" alt="Гальштат"/>
-        <div class="Element__title">
-          <h2 class="Element__caption">Гальштат</h2>
-          <button class="Element__img"></button>
+      <div class="element">
+        <img class="element__place" src="./images/Hallstat.jpg" alt="Гальштат"/>
+        <div class="element__title">
+          <h2 class="element__caption">Гальштат</h2>
+          <button class="element__img" type="button"></button>
         </div>
       </div>
-      <div class="Element">
-        <img class="Element__place" src="./images/Kiji.jpg" alt="Кижи"/>
-        <div class="Element__title">
-          <h2 class="Element__caption">Кижи</h2>
-          <button class="Element__img"></button>
+      <div class="element">
+        <img class="element__place" src="./images/Kiji.jpg" alt="Кижи"/>
+        <div class="element__title">
+          <h2 class="element__caption">Кижи</h2>
+          <button class="element__img" type="button"></button>
         </div>
       </div>
-      <div class="Element">
-        <img class="Element__place" src="./images/Kukulkana.jpg" alt="Кукулькана"/>
-        <div class="Element__title">
-          <h2 class="Element__caption">Пирамида Кукулькана</h2>
-          <button class="Element__img"></button>
+      <div class="element">
+        <img class="element__place" src="./images/Kukulkana.jpg" alt="Кукулькана"/>
+        <div class="element__title">
+          <h2 class="element__caption">Пирамида Кукулькана</h2>
+          <button class="element__img" type="button"></button>
         </div>
       </div>
-      <div class="Element">
-        <img class="Element__place" src="./images/maldives.jpg" alt="Мальдивы"/>
-        <div class="Element__title">
-          <h2 class="Element__caption">Мальдивы</h2>
-          <button class="Element__img"></button>
+      <div class="element">
+        <img class="element__place" src="./images/maldives.jpg" alt="Мальдивы"/>
+        <div class="element__title">
+          <h2 class="element__caption">Мальдивы</h2>
+          <button class="element__img" type="button"></button>
         </div>
       </div>
-      <div class="Element">
-        <img class="Element__place" src="./images/Santorini.jpg" alt="Санторини"/>
-        <div class="Element__title">
-          <h2 class="Element__caption">Санторини</h2>
-          <button class="Element__img"></button>
+      <div class="element">
+        <img class="element__place" src="./images/Santorini.jpg" alt="Санторини"/>
+        <div class="element__title">
+          <h2 class="element__caption">Санторини</h2>
+          <button class="element__img" type="button"></button>
         </div>
       </div>
     </section>
   </main>
-  <footer class="Footer">
-    <p class="Footer__copyright">© 2022 Шипелин Егор</p>
+  <footer class="footer">
+    <p class="footer__copyright">© 2022 Шипелин Егор</p>
   </footer>
   <div class="popup">
     <div class="popup__container">
-      <form class="editProfileForm" name="editProfileForm">
-        <h2 class="editProfileForm__header">Редактировать профиль</h2>
-        <input class="editProfileForm__input editProfileForm__input_field_name"  type="text" value="" name="field_name"/>
-        <input class="editProfileForm__input editProfileForm__input_field_label" type="text" value="" name="field_label"/>
-        <input class="editProfileForm__save" type="submit" value="Сохранить"/>
-        <div class="editProfileForm__close"></div>
+      <form class="edit-profile-form" name="editprofileForm">
+        <h2 class="edit-profile-form__header">Редактировать профиль</h2>
+        <input class="edit-profile-form__input edit-profile-form__input-field-name"  type="text" value="" name="field_name"/>
+        <input class="edit-profile-form__input edit-profile-form__input-field-label" type="text" value="" name="field_label"/>
+        <input class="edit-profile-form__save" type="submit" value="Сохранить"/>
       </form>
+      <button class="popup__close" type="button"></button>
     </div>
-
   </div>
   <script src="./js/index.js"></script>
 </body>

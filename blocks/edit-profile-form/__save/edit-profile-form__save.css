@@ -1,7 +1,7 @@
-.editProfileForm__save {
+.edit-profile-form__save {
 	display: block;
 	width: 358px;
-	margin: 18px auto 37px;
+	margin: 18px auto 0;
 	background-color: #000000;
 	color: #FFFFFF;
 	padding-top: 14px;
@@ -14,15 +14,15 @@
 	border-radius: 2px;
 	border: none;
 }
-.editProfileForm__save:hover {
+.edit-profile-form__save:hover {
 	cursor: pointer;
 	opacity: 0.8;
 }
 
-@media screen and (max-width:321px) {
-    .editProfileForm__save {
-		width: 238px;
-		margin: 45px auto 25px;
+@media screen and (max-width:575px) {
+    .edit-profile-form__save {
+		width: calc(100% - 2*22px);
+		margin: 45px auto 0;
 		padding-bottom: 14px;
 		font-size: 14px;
 		line-height: 17px;

@@ -1,4 +1,4 @@
-.ProfileInfo__header {
+.profile-info__header {
 	margin: 22px 0 0;
 	font-weight: 500;
 	font-size: 42px;
@@ -10,10 +10,11 @@
 	overflow: hidden;
 }
 
-@media screen and (max-width:320px) {
-    .ProfileInfo__header {
+@media screen and (max-width:575px) {
+    .profile-info__header {
 		font-size: 27px;
 		line-height: 32.68px;
 		margin: 22px auto 0 46px;
+		max-width: 189px;
     }
 } 

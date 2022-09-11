@@ -1,5 +1,5 @@
-.Element__place {
-	object-fit: cover;
+.element__place {
+	object-fit: fill;
     width: 100%;
-	min-height: 282px;
+	aspect-ratio: 1 / 1;
 }

@@ -1,13 +1,13 @@
-const editButton  	 = document.querySelector('.ProfileInfo__EditButton');
-const closeButton 	 = document.querySelector('.editProfileForm__close');
+const editButton  	 = document.querySelector('.profile-info__edit-button');
+const closeButton 	 = document.querySelector('.popup__close');
 const popup		  	 = document.querySelector('.popup');
 /*поля в шапке*/
-let   nameInput   	 = document.querySelector('.ProfileInfo__header');
-let   jobInput 	  	 = document.querySelector('.ProfileInfo__description');
+let   nameInput   	 = document.querySelector('.profile-info__header');
+let   jobInput 	  	 = document.querySelector('.profile-info__description');
 /*поля в модалке*/
-let   modalNameInput = document.querySelector('.editProfileForm__input_field_name');
-let   modalJobInput  = document.querySelector('.editProfileForm__input_field_label');
-let   popupContainer = document.querySelector('.editProfileForm');
+let   modalNameInput = document.querySelector('.edit-profile-form__input-field-name');
+let   modalJobInput  = document.querySelector('.edit-profile-form__input-field-label');
+let   popupContainer = document.querySelector('.edit-profile-form');
 //
 // функция отображения popup
 //
@@ -34,4 +34,4 @@ const formSubmitHandler = (evt) => {
 
 editButton.addEventListener('click', showPopup);
 closeButton.addEventListener('click', closePopup);
-popupContainer.addEventListener('submit', formSubmitHandler); 
+popupContainer.addEventListener('submit', formSubmitHandler);

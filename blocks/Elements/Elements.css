@@ -1,14 +1,13 @@
-.Elements {
+.elements {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 20px 17px;
-	margin-top: 51px;
+
 }
-@media screen and (max-width:321px) {
-    .Elements {
+@media screen and (max-width:575px) {
+    .elements {
 		display: block;
 		max-width: calc(100% - 2*19px);
-		/*margin: 36px auto 0;*/
 		margin: 0 auto;
     }
 } 
