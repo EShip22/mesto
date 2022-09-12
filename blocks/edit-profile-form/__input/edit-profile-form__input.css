@@ -12,9 +12,6 @@
 	outline: none;
 	border-bottom: 1px solid rgba(0, 0, 0, .2);
 	box-sizing: border-box;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
 }
 @media screen and (max-width:575px) {
     .edit-profile-form__input {

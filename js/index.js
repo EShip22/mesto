@@ -5,8 +5,8 @@ const popup		  	 = document.querySelector('.popup');
 let   nameInput   	 = document.querySelector('.profile-info__header');
 let   jobInput 	  	 = document.querySelector('.profile-info__description');
 /*поля в модалке*/
-let   modalNameInput = document.querySelector('.edit-profile-form__input-field-name');
-let   modalJobInput  = document.querySelector('.edit-profile-form__input-field-label');
+let   modalNameInput = document.querySelector('.edit-profile-form__input_field_name');
+let   modalJobInput  = document.querySelector('.edit-profile-form__input_field_label');
 let   popupContainer = document.querySelector('.edit-profile-form');
 //
 // функция отображения popup
