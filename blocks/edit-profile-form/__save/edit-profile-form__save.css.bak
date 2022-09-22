@@ -22,7 +22,7 @@
 @media screen and (max-width:575px) {
     .edit-profile-form__save {
 		width: calc(100% - 2*22px);
-		margin: 45px auto 37px;
+		margin: 45px auto 0;
 		padding-bottom: 14px;
 		font-size: 14px;
 		line-height: 17px;

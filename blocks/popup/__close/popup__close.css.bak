@@ -7,6 +7,7 @@
 	right: -60px;
 	display: inline-block;
 	background-repeat: no-repeat;
+	background-color: red;
 	transition: opacity 0.4s linear;
 	width: 32px;
 	height: 32px;

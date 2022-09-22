@@ -3,7 +3,6 @@
 	background-color: #FFFFFF;
 	overflow: hidden;
 	border-radius: 3%;
-	position: relative;
 }
 @media screen and (max-width:575px) {
     .element {

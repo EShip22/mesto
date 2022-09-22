@@ -23,62 +23,48 @@
       <button class="profile__add-button" type="button"></button>
     </section>
     <section class="elements">
-      <div class="element">
-        <img class="element__place" src="./images/Gavana.jpg" alt="Гавана"/>
-        <div class="element__title">
-          <h2 class="element__caption">Гавана</h2>
-          <button class="element__img" type="button"></button>
+      <template class="element-template">
+        <div class="element">
+          <button class="element__trash" type="button"></button>
+          <img class="element__place"/>
+          <div class="element__title">
+            <h2 class="element__caption"></h2>
+            <button class="element__like" type="button"></button>
+          </div>
         </div>
-      </div>
-      <div class="element">
-        <img class="element__place" src="./images/Hallstat.jpg" alt="Гальштат"/>
-        <div class="element__title">
-          <h2 class="element__caption">Гальштат</h2>
-          <button class="element__img" type="button"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__place" src="./images/Kiji.jpg" alt="Кижи"/>
-        <div class="element__title">
-          <h2 class="element__caption">Кижи</h2>
-          <button class="element__img" type="button"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__place" src="./images/Kukulkana.jpg" alt="Кукулькана"/>
-        <div class="element__title">
-          <h2 class="element__caption">Пирамида Кукулькана</h2>
-          <button class="element__img" type="button"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__place" src="./images/maldives.jpg" alt="Мальдивы"/>
-        <div class="element__title">
-          <h2 class="element__caption">Мальдивы</h2>
-          <button class="element__img" type="button"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__place" src="./images/Santorini.jpg" alt="Санторини"/>
-        <div class="element__title">
-          <h2 class="element__caption">Санторини</h2>
-          <button class="element__img" type="button"></button>
-        </div>
-      </div>
+      </template>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2022 Шипелин Егор</p>
   </footer>
-  <div class="popup">
+  <div class="popup popup_edit-profile">
     <div class="popup__container">
-      <form class="edit-profile-form" name="editprofileForm">
+      <button class="popup__close popup__close_type_edit" type="button"></button>
+      <form class="edit-profile-form" name="edit-profile-form">
         <h2 class="edit-profile-form__header">Редактировать профиль</h2>
         <input class="edit-profile-form__input edit-profile-form__input_field_name"  type="text" value="" name="field_name"/>
         <input class="edit-profile-form__input edit-profile-form__input_field_label" type="text" value="" name="field_label"/>
         <input class="edit-profile-form__save" type="submit" value="Сохранить"/>
       </form>
-      <button class="popup__close" type="button"></button>
+    </div>
+  </div>
+  <div class="popup popup_add-card">
+    <div class="popup__container">
+      <button class="popup__close popup__close_type_add" type="button"></button>
+      <form class="add-card-form" name="add-card-form">
+        <h2 class="add-card-form__header">Новое место</h2>
+        <input class="add-card-form__input add-card-form__input_field_name" type="text" value="" placeholder="Название" name="field_name"/>
+        <input class="add-card-form__input add-card-form__input_field_link" type="text" value="" placeholder="Ссылка на картинку" name="field_link"/>
+        <input class="add-card-form__save" type="submit" value="Создать"/>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_show-image">
+    <div class="popup__container popup__container_img">
+      <button class="popup__close popup__close_img" type="button"></button>
+      <img class="popup__img"/>
+    <!--ЗАПИСЫВАТЬ НА БУМАЖКЕ РАЗНЫМИ СПОСОБАМИ -->
     </div>
   </div>
   <script src="./js/index.js"></script>

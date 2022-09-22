@@ -113,6 +113,7 @@ const openPopup = (iPopup, iImg = '') => {
 	console.log(iImg);
 	if (iPopup === 'popup_show-image') {
 		getPopupByModifName('popup_show-image').querySelector('.popup__img').setAttribute('src', iImg);
+		getPopupByModifName('popup_show-image').classList.add('popup_show-image');
 	}
 }
 //

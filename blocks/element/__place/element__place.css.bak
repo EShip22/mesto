@@ -3,6 +3,3 @@
     width: 100%;
 	aspect-ratio: 1 / 1;
 }
-.element__place:hover {
-	cursor: pointer;
-}

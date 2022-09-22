@@ -1,0 +1,6 @@
+.edit-profile-form {
+	max-width: 430px;
+
+	background-color: #FFFFFF;
+	border-radius: 10px;
+}
