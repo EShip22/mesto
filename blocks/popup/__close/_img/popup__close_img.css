@@ -1,9 +1,9 @@
 .popup__close_img {
-	width: 32px;
-	height: 32px;
-	z-index: 2;
-	display: block;
-	margin-left: auto;
+	min-width: 32px;
+	min-height: 32px;
+	position: absolute;
+	top: -50px;
+	right: -50px;
 }
 
 .popup__close_img:hover {
@@ -13,6 +13,8 @@
 
 @media screen and (max-width:575px) {
     .popup__close_img {
+		top: -40px;
+		right: 0;
 		min-width: 20px;
 		min-height: 20px;
     }

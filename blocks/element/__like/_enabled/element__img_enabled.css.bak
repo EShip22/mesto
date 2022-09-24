@@ -1,3 +1,0 @@
-.element__img_enabled {
-	background-image: url('../../../images/like_active.svg');
-}

@@ -3,8 +3,8 @@
 	background-size: contain;
 	background-color: rgba(0,0,0,0);
     position: relative;
-	top: -40px;
-	right: -60px;
+	top: -10px;
+	right: -40px;
 	display: inline-block;
 	background-repeat: no-repeat;
 	transition: opacity 0.4s linear;

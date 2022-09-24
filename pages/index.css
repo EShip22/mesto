@@ -10,12 +10,13 @@
 /*popup*/
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__container-for-img/popup__container-for-img.css);
 @import url(../blocks/popup/__container/_img/popup__container_img.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
-@import url(../blocks/popup/_show-image/popup_show-image.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__close/_img/popup__close_img.css);
 @import url(../blocks/popup/__img/popup__img.css);
+@import url(../blocks/popup/__text/popup__text.css);
 /*edit-profile-form*/
 @import url(../blocks/edit-profile-form/__header/edit-profile-form__header.css);
 @import url(../blocks/edit-profile-form/__input/edit-profile-form__input.css);

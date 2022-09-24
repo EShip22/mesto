@@ -51,7 +51,6 @@ const formSubmitHandlerEdit = (evt) => {
 	jobInput.textContent  = modalJobInput.value;
 	/*закрыть попап*/
 	popupEdit.classList.remove('popup_opened');
-	popupAdd.classList.remove('popup_opened');
 }
 const formSubmitHandlerAdd = (evt) => {
     evt.preventDefault();
@@ -59,7 +58,6 @@ const formSubmitHandlerAdd = (evt) => {
 	/*карточки*/
 	renderItem(modalAddCardName.value, modalAddCardLink.value, true);
 	/*закрыть попап*/
-	popupEdit.classList.remove('popup_opened');
 	popupAdd.classList.remove('popup_opened');
 }
 /*добавление карточки*/
@@ -106,13 +104,16 @@ const getPopupByModifName = (iPopup) => {
 //	iPopup - нужный попап
 //	iImg - картинка для попапа с изображением
 //
-const openPopup = (iPopup, iImg = '') => {
+const openPopup = (iPopup, iImg = '', iImgText = '') => {
 	getPopupByModifName(iPopup).classList.add('popup_opened');
 	modalNameInput.value = nameInput.textContent;
 	modalJobInput.value = jobInput.textContent;
 	console.log(iImg);
 	if (iPopup === 'popup_show-image') {
-		getPopupByModifName('popup_show-image').querySelector('.popup__img').setAttribute('src', iImg);
+		let popupShowImg = getPopupByModifName('popup_show-image');
+		console.log("зашли");
+		popupShowImg.querySelector('.popup__img').setAttribute('src', iImg);
+		popupShowImg.querySelector('.popup__text').textContent = iImgText;
 	}
 }
 //
@@ -140,7 +141,9 @@ const setListenersForItem = (iElement) => {
 	const delButton = iElement.querySelector('.element__trash');
 	delButton.addEventListener('click', () => delCard(delButton));
 	const imgPlace = iElement.querySelector('.element__place');
-	imgPlace.addEventListener('click', () => openPopup('popup_show-image', imgPlace.getAttribute('src')));
+	const imgText = iElement.querySelector('.element__caption').textContent;
+	console.log(imgText);
+	imgPlace.addEventListener('click', () => openPopup('popup_show-image', imgPlace.getAttribute('src'), imgText));
 }
 
 render();
