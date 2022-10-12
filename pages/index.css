@@ -17,16 +17,13 @@
 @import url(../blocks/popup/__close/_img/popup__close_img.css);
 @import url(../blocks/popup/__img/popup__img.css);
 @import url(../blocks/popup/__text/popup__text.css);
-/*edit-profile-form*/
-@import url(../blocks/edit-profile-form/__header/edit-profile-form__header.css);
-@import url(../blocks/edit-profile-form/__input/edit-profile-form__input.css);
-@import url(../blocks/edit-profile-form/__save/edit-profile-form__save.css);
-@import url(../blocks/edit-profile-form/edit-profile-form.css);
-/*add-card-form*/
-@import url(../blocks/add-card-form/__header/add-card-form__header.css);
-@import url(../blocks/add-card-form/__input/add-card-form__input.css);
-@import url(../blocks/add-card-form/__save/add-card-form__save.css);
-@import url(../blocks/add-card-form/add-card-form.css);
+@import url(../blocks/popup/__header/popup__header.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__save/popup__save.css);
+@import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__input/_type_error/popup__input_type_error.css);
+@import url(../blocks/popup/__input-error/popup__input-error.css);
+@import url(../blocks/popup/__save/_disabled/popup__save_disabled.css);
 /*content*/
 @import url(../blocks/content/content.css);
 /*profile*/

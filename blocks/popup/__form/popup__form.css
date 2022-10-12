@@ -1,6 +1,7 @@
-.add-card-form {
+.popup__form {
 	max-width: 430px;
 	align-self: center;
 	background-color: #FFFFFF;
 	border-radius: 10px;
+	position: relative;
 }

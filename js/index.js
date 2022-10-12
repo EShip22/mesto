@@ -24,6 +24,8 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+const popupList = Array.from(document.querySelectorAll('.popup'));
+
 const btnOpenEditProfilePopup = document.querySelector('.profile-info__edit-button');
 const closeButtonEditPopup = document.querySelector('.popup__close_type_edit');
 const closeButtonAddPopup = document.querySelector('.popup__close_type_add');
@@ -34,16 +36,17 @@ const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupAddCard = document.querySelector('.popup_add-card');
 const popupShowImg = document.querySelector('.popup_show-image');
 
-const formEditProfile = document.querySelector('.edit-profile-form');
-const formAddCard = document.querySelector('.add-card-form');
+const formEditProfile = document.querySelector('.popup__form_type_edit-profile');
+const formAddCard = document.querySelector('.popup__form_type_add');
 //	поля в шапке
 const userName = document.querySelector('.profile-info__header');
 const userJob = document.querySelector('.profile-info__description');
 //	поля в модалке
-const modalNameInput = document.querySelector('.edit-profile-form__input_field_name');
-const modalJobInput = document.querySelector('.edit-profile-form__input_field_label');
-const modalAddCardName = document.querySelector('.add-card-form__input_field_name');
-const modalAddCardLink = document.querySelector('.add-card-form__input_field_link');
+const modalNameInput = document.querySelector('.popup__input_field_name');
+const modalJobInput = document.querySelector('.popup__input_field_activity-category');
+const modalAddCardName = formAddCard.querySelector('#caption-input');
+const modalAddCardLink = formAddCard.querySelector('#link-input');
+const modalAddCardCreate = formAddCard.querySelector('.popup__save');
 const popupImgImage	= document.querySelector('.popup__img');
 const popupImgText = document.querySelector('.popup__text');
 
@@ -59,6 +62,7 @@ const submitAddCardForm = (evt) => {
 	renderCard(createCard(modalAddCardName.value, modalAddCardLink.value), true);
 	closePopup(popupAddCard);
 	clearAddPopupInputs();
+	modalAddCardCreate.classList.add('popup__save_disabled');
 }
 //	добавление карточки
 const cardElems = document.querySelector('.elements');
@@ -90,8 +94,24 @@ const renderCard = (card, isFirst = false) => {
 	}
 }
 
+const closeESCPopup = (evt) => {
+	if (evt.code === 'Escape') {
+		// ищем открытый попап, т.к. входным параметром не получается его передать
+		const popupOpend = document.getElementsByClassName('popup_opened')[0];
+		closePopup(popupOpend, settings);
+	}
+}
+
 const openPopup = (popup) => {
 	popup.classList.add('popup_opened');
+	document.addEventListener('keydown', closeESCPopup );
+}
+
+const closePopup = (popup, settings = null) => {
+	clearInputErrors(settings);
+	popup.classList.remove('popup_opened');
+	document.removeEventListener('click', closeESCPopup);
+	clearAddPopupInputs();
 }
 
 const openPopupEditProfile = () => {
@@ -103,10 +123,6 @@ const openPopupImage = (img, imgText) => {
 	popupImgImage.setAttribute('src', img);
 	popupImgImage.setAttribute('alt', imgText);
 	popupImgText.textContent = imgText;
-}
-
-const closePopup = (popup) => {
-	popup.classList.remove('popup_opened');
 }
 
 const clearAddPopupInputs = () => {
@@ -138,13 +154,20 @@ renderInitialCards();
 btnOpenEditProfilePopup.addEventListener('click', () => {
 	openPopup(popupEditProfile);
 	openPopupEditProfile();
+	setActiveButton(popupEditProfile.querySelector('.popup__form'), settings);
 });
 closeButtonEditPopup.addEventListener('click',() => closePopup(popupEditProfile));
 closeButtonAddPopup.addEventListener('click',() => {
-	closePopup(popupAddCard);
-	clearAddPopupInputs();
+	closePopup(popupAddCard, settings);
 });
 closeButtonImgPopup.addEventListener('click',() => closePopup(popupShowImg));
 formEditProfile.addEventListener('submit', submitEditProfileForm);
 formAddCard.addEventListener('submit', submitAddCardForm);
 btnOpenAddCardPopup.addEventListener('click', () => openPopup(popupAddCard));
+popupList.forEach((popupElement) => {
+	popupElement.addEventListener('click', (evt) => {
+		if (evt.target.parentNode.classList.value === 'page'){
+			closePopup(popupElement, settings);
+		}
+	});
+});

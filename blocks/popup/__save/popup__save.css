@@ -1,4 +1,4 @@
-.edit-profile-form__save {
+.popup__save {
 	display: block;
 	width: 358px;
 	margin: 18px auto 37px;
@@ -14,13 +14,13 @@
 	border-radius: 2px;
 	border: none;
 }
-.edit-profile-form__save:hover {
+.popup__save:hover {
 	cursor: pointer;
 	opacity: 0.8;
 }
 
 @media screen and (max-width:575px) {
-    .edit-profile-form__save {
+    .popup__save {
 		width: calc(100% - 2*22px);
 		margin: 45px auto 37px;
 		padding-bottom: 14px;

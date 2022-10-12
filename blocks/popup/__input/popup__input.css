@@ -1,4 +1,4 @@
-.edit-profile-form__input {
+.popup__input {
 	max-width: 358px;
 	width: calc(100% - 2*36px);
 	margin: 0 0 30px 36px;
@@ -14,7 +14,7 @@
 	box-sizing: border-box;
 }
 @media screen and (max-width:575px) {
-    .edit-profile-form__input {
+    .popup__input {
 		width: calc(100% - 2*22px);
 		max-width: 100%;
 		margin: 30px 0 0 22px;
