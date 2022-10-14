@@ -72,7 +72,8 @@ const renderInitialCards = () => {
 	initialCards.forEach(
 		(elem) => {
 			renderCard(createCard(elem.name, elem.link));
-		});
+		}
+	);
 }
 
 const createCard = (title, imageLink) => {
@@ -82,11 +83,11 @@ const createCard = (title, imageLink) => {
 	const img = newHtmlElement.querySelector('.element__place');
 	img.setAttribute('src', imageLink);
 	img.setAttribute('alt', title);
+	setListenersForItem(newHtmlElement);
 	return newHtmlElement;
 }
 
 const renderCard = (card, isFirst = false) => {
-	setListenersForItem(card);
 	if (isFirst) {
 		cardElems.prepend(card);
 	} else {
@@ -97,29 +98,30 @@ const renderCard = (card, isFirst = false) => {
 const closeESCPopup = (evt) => {
 	if (evt.code === 'Escape') {
 		// ищем открытый попап, т.к. входным параметром не получается его передать
-		const popupOpend = document.getElementsByClassName('popup_opened')[0];
+		const popupOpend = document.querySelector('.popup_opened');
 		closePopup(popupOpend, settings);
 	}
 }
 
 const openPopup = (popup) => {
+	clearInputErrors(settings);
+	clearAddPopupInputs();
 	popup.classList.add('popup_opened');
-	document.addEventListener('keydown', closeESCPopup );
+	document.addEventListener('keydown', closeESCPopup);
 }
 
 const closePopup = (popup, settings = null) => {
-	clearInputErrors(settings);
 	popup.classList.remove('popup_opened');
+	popup.classList.add('popup_closed-animation');
 	document.removeEventListener('click', closeESCPopup);
-	clearAddPopupInputs();
 }
 
-const openPopupEditProfile = () => {
+const fillInputsPopupEditProfile = () => {
 	modalNameInput.value = userName.textContent;
 	modalJobInput.value = userJob.textContent;
 }
 
-const openPopupImage = (img, imgText) => {
+const fillPopupImage = (img, imgText) => {
 	popupImgImage.setAttribute('src', img);
 	popupImgImage.setAttribute('alt', imgText);
 	popupImgText.textContent = imgText;
@@ -130,21 +132,21 @@ const clearAddPopupInputs = () => {
 	modalAddCardLink.value = '';
 }
 
-const delCard = (delButton) => {
-	const parentElem = delButton.parentNode;
-	parentElem.remove();
+const delCard = (rootCardElem) => {
+	rootCardElem.remove();
 }
 
 const setListenersForItem = (element) => {
 	const likeButton = element.querySelector('.element__like');
 	likeButton.addEventListener('click', () => likeButton.classList.toggle('element__like_enabled'));
 	const delButton = element.querySelector('.element__trash');
-	delButton.addEventListener('click', () => delCard(delButton));
+	const rootCardElem = element.querySelector('.element');
+	delButton.addEventListener('click', () => delCard(rootCardElem));
 	const imgPlace = element.querySelector('.element__place');
 	const imgText = element.querySelector('.element__caption').textContent;
 	imgPlace.addEventListener('click', () => {
 		openPopup(popupShowImg);
-		openPopupImage(imgPlace.getAttribute('src'), imgText);
+		fillPopupImage(imgPlace.getAttribute('src'), imgText);
 	});
 }
 
@@ -153,8 +155,8 @@ renderInitialCards();
 //	листенеры
 btnOpenEditProfilePopup.addEventListener('click', () => {
 	openPopup(popupEditProfile);
-	openPopupEditProfile();
-	setActiveButton(popupEditProfile.querySelector('.popup__form'), settings);
+	fillInputsPopupEditProfile();
+	setActiveButton(popupEditProfile.querySelector('.popup__form'), settings, null);
 });
 closeButtonEditPopup.addEventListener('click',() => closePopup(popupEditProfile));
 closeButtonAddPopup.addEventListener('click',() => {
@@ -166,8 +168,11 @@ formAddCard.addEventListener('submit', submitAddCardForm);
 btnOpenAddCardPopup.addEventListener('click', () => openPopup(popupAddCard));
 popupList.forEach((popupElement) => {
 	popupElement.addEventListener('click', (evt) => {
-		if (evt.target.parentNode.classList.value === 'page'){
+		if (evt.target.classList.contains('popup')) {
 			closePopup(popupElement, settings);
 		}
+	});
+	popupElement.addEventListener('animationend', () => {
+		popupElement.classList.remove('popup_closed-animation');
 	});
 });

@@ -11,13 +11,13 @@ const getInputList = (formElement, settings) => {
 }
 
 const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
+  return inputList?.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 }
 
-const setActiveButton = (formElement, settings) => {
-	const inputList = getInputList(formElement, settings);
+const setActiveButton = (formElement, settings, inputList) => {
+	//const inputList = getInputList(formElement, settings);
 	const submitButton = formElement.querySelector(settings.submitButtonSelector);
 	if (hasInvalidInput(inputList)) {
 		submitButton.classList.add(settings.inactiveButtonClass);
@@ -49,11 +49,11 @@ const checkInputValidity = (formElement, inputElement, settings) => {
 };
 
 const setEventListeners = (formElement, settings) => {
-  const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+  const inputList = getInputList(formElement, settings);//Array.from(formElement.querySelectorAll(settings.inputSelector));
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
 		checkInputValidity(formElement, inputElement, settings);
-		setActiveButton(formElement, settings);
+		setActiveButton(formElement, settings, inputList);
     });
   });
 };
