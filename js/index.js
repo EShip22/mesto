@@ -78,7 +78,7 @@ const renderInitialCards = () => {
 }
 
 const createCard = (title, imageLink) => {
-	const newHtmlElement = elemTemplate.cloneNode(true); //клонируем шаблон
+	const newHtmlElement = elemTemplate.querySelector('.element').cloneNode(true); //клонируем шаблон
 	const caption = newHtmlElement.querySelector('.element__caption');
 	caption.textContent = title;
 	const img = newHtmlElement.querySelector('.element__place');
@@ -138,7 +138,7 @@ const setListenersForItem = (element) => {
 	const likeButton = element.querySelector('.element__like');
 	likeButton.addEventListener('click', () => likeButton.classList.toggle('element__like_enabled'));
 	const delButton = element.querySelector('.element__trash');
-	//const rootCardElem = element.querySelector('.element');
+	const rootCardElem = element.querySelector('.element');
 	delButton.addEventListener('click',  () => {delCard(element)});
 	const imgPlace = element.querySelector('.element__place');
 	const imgText = element.querySelector('.element__caption').textContent;
