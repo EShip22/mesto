@@ -111,6 +111,7 @@ const openPopup = (popup) => {
 
 const closePopup = (popup, settings = null) => {
 	popup.classList.remove('popup_opened');
+	//popup.classList.add('popup_closed-animation');
 	document.removeEventListener('click', closeESCPopup);
 }
 

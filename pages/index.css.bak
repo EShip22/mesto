@@ -13,6 +13,7 @@
 @import url(../blocks/popup/__container-for-img/popup__container-for-img.css);
 @import url(../blocks/popup/__container/_img/popup__container_img.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
+/*@import url(../blocks/popup/_closed-animation/popup_closed-animation.css);*/
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__close/_img/popup__close_img.css);
 @import url(../blocks/popup/__img/popup__img.css);
