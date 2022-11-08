@@ -3,6 +3,7 @@ export class FormValidator {
 		this._validatedForm = validatedForm;
 		this._settings = settings;
 		this._formInputList = Array.from(this._validatedForm.querySelectorAll(this._settings.inputSelector));
+		this._submitButton = this._validatedForm.querySelector(this._settings.submitButtonSelector);
 	}
 	
 	_hasInvalidInput() {
@@ -12,14 +13,14 @@ export class FormValidator {
 	}
 	
 	toggleSubmitState() {
-		const submitButton = this._validatedForm.querySelector(this._settings.submitButtonSelector);
-
+		//const submitButton = this._validatedForm.querySelector(this._settings.submitButtonSelector);
+		
 		if (this._hasInvalidInput()){
-			submitButton.classList.add(this._settings.inactiveButtonClass);
-			submitButton.disabled = true;
+			this._submitButton.classList.add(this._settings.inactiveButtonClass);
+			this._submitButton.disabled = true;
 		} else {
-			submitButton.classList.remove(this._settings.inactiveButtonClass);
-			submitButton.disabled = false;
+			this._submitButton.classList.remove(this._settings.inactiveButtonClass);
+			this._submitButton.disabled = false;
 		}
 	}
 	

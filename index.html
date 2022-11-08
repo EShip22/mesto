@@ -17,19 +17,19 @@
       <img class="profile__avatar" src="./images/Avatar.png" alt="Кусто"/>
       <div class="profile-info">
         <h1 class="profile-info__header">Жак-Ив Кусто</h1>
-        <button aria-label="edit" class="profile-info__edit-button" type="button"></button>
+        <button aria-label="редактировать" class="profile-info__edit-button" type="button"></button>
         <p class="profile-info__description">Исследователь океана</p>
       </div>
-      <button aria-label="add" class="profile__add-button" type="button"></button>
+      <button aria-label="добавить" class="profile__add-button" type="button"></button>
     </section>
     <section class="elements">
       <template class="element-template">
         <div class="element">
-          <button aria-label="delete" class="element__trash" type="button"></button>
+          <button aria-label="удалить" class="element__trash" type="button"></button>
           <img class="element__place"/>
           <div class="element__title">
             <h2 class="element__caption"></h2>
-            <button aria-label="like" class="element__like" type="button"></button>
+            <button aria-label="лайк" class="element__like" type="button"></button>
           </div>
         </div>
       </template>
@@ -40,7 +40,7 @@
   </footer>
   <div class="popup popup_edit-profile">
     <div class="popup__container">
-      <button aria-label="close" class="popup__close popup__close_type_edit" type="button"></button>
+      <button aria-label="закрыть" class="popup__close popup__close_type_edit" type="button"></button>
       <form class="popup__form popup__form_type_edit-profile" name="edit-profile-form">
         <h2 class="popup__header">Редактировать профиль</h2>
         <input class="popup__input popup__input_field_name" id="name-input"
@@ -55,7 +55,7 @@
   </div>
   <div class="popup popup_add-card">
     <div class="popup__container">
-      <button aria-label="add" class="popup__close popup__close_type_add" type="button"></button>
+      <button aria-label="добавить" class="popup__close popup__close_type_add" type="button"></button>
       <form class="popup__form popup__form_type_add" name="add-card-form">
         <h2 class="popup__header">Новое место</h2>
         <input class="popup__input" id="caption-input" type="text" placeholder="Название" name="field_caption" required minlength="2" maxlength="30"/>
@@ -68,7 +68,7 @@
   </div>
   <div class="popup popup_show-image">
     <div class="popup__container-for-img">
-      <button aria-label="close" class="popup__close popup__close_img" type="button"></button>
+      <button aria-label="закрыть" class="popup__close popup__close_img" type="button"></button>
       <img class="popup__img" src="#" alt=""/>
       <p class="popup__text"></p>
     </div>

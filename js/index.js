@@ -38,6 +38,18 @@ const settings = {
 };
 
 const tmpltSelector = '.element-template';
+
+const closeESCPopup = (evt) => {
+	if (evt.code === 'Escape') {
+		// ищем открытый попап, т.к. входным параметром не получается его передать
+		const popupOpend = document.querySelector('.popup_opened');
+		closePopup(popupOpend);
+	}
+}
+
+const popupImgImage	= document.querySelector('.popup__img');
+const popupImgText = document.querySelector('.popup__text');
+
 const openPopup = (popup) => {
 	popup.classList.add('popup_opened');
 	document.addEventListener('keydown', closeESCPopup);
@@ -60,13 +72,17 @@ const renderCard = (card, isFirst = false) => {
 	}
 }
 
+const handleOpenImagePopup = (name, link) => {
+	fillPopupImage(link, name); 
+	openPopup(popupShowImg);
+}
+
 initialCards.forEach((elem) => {
 	const newCard = new Card(
 		elem.name,
 		elem.link,
 		tmpltSelector,
-		() => openPopup(popupShowImg),
-		() => fillPopupImage(elem.link, elem.name));
+		() => handleOpenImagePopup(elem.name, elem.link));
 	renderCard(newCard.generateCard());
 });
 
@@ -75,6 +91,10 @@ const editProfileForm = document.querySelector('.popup__form_type_edit-profile')
 
 const formEditProfileValidator = new FormValidator(settings, editProfileForm);
 formEditProfileValidator.enableValidation();
+
+const formAddValidator = new FormValidator(settings, addForm);
+formAddValidator.clearInputErrors();
+formAddValidator.enableValidation();
 
 const popupList = Array.from(document.querySelectorAll('.popup'));
 const btnOpenEditProfilePopup = document.querySelector('.profile-info__edit-button');
@@ -93,32 +113,23 @@ const modalJobInput = document.querySelector('.popup__input_field_activity-categ
 const modalAddCardName = formAddCard.querySelector('#caption-input');
 const modalAddCardLink = formAddCard.querySelector('#link-input');
 const modalAddCardCreate = formAddCard.querySelector('.popup__save');
-const popupImgImage	= document.querySelector('.popup__img');
-const popupImgText = document.querySelector('.popup__text');
 
 const submitEditProfileForm = (evt) => {
-    evt.preventDefault();
+	evt.preventDefault();
 	userName.textContent = modalNameInput.value;
 	userJob.textContent = modalJobInput.value;
 	closePopup(popupEditProfile);
 }
 
 const submitAddCardForm = (evt) => {
-    evt.preventDefault();
-	const card = new Card(modalAddCardName.value, modalAddCardLink.value, tmpltSelector);
+	evt.preventDefault();
+	const card = new Card(
+		modalAddCardName.value,
+		modalAddCardLink.value,
+		tmpltSelector,
+		() => handleOpenImagePopup(modalAddCardName.value, modalAddCardLink.value));
 	renderCard(card.generateCard(true), true);
 	closePopup(popupAddCard);
-	clearAddPopupInputs();
-	modalAddCardCreate.classList.add('popup__save_disabled');
-	modalAddCardCreate.disabled = true;
-}
-
-const closeESCPopup = (evt) => {
-	if (evt.code === 'Escape') {
-		// ищем открытый попап, т.к. входным параметром не получается его передать
-		const popupOpend = document.querySelector('.popup_opened');
-		closePopup(popupOpend);
-	}
 }
 
 const closePopup = (popup) => {
@@ -152,9 +163,8 @@ formAddCard.addEventListener('submit', submitAddCardForm);
 btnOpenAddCardPopup.addEventListener('click', () => {
 	openPopup(popupAddCard);
 	clearAddPopupInputs();
-	const formAddValidator = new FormValidator(settings, addForm);
 	formAddValidator.clearInputErrors();
-	formAddValidator.enableValidation();
+	formAddValidator.toggleSubmitState();
 });
 popupList.forEach((popupElement) => {
 	popupElement.addEventListener('click', (evt) => {

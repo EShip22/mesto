@@ -1,10 +1,10 @@
 export class Card {
-	constructor(name, imageLink, tmpltSelector, openPopup, fillPopupImage) {
+
+	constructor(name, imageLink, tmpltSelector, handleOpenImagePopup) {
 		this._name = name;
 		this._imageLink = imageLink;
 		this._template = document.querySelector(tmpltSelector).content.querySelector('.element');
-		this._openPopup = openPopup;
-		this._fillPopupImage = fillPopupImage;
+		this._handleOpenImagePopup = handleOpenImagePopup;
 	}
 
 	_getTemplate() {
@@ -17,8 +17,7 @@ export class Card {
 	}
 	
 	_openCard() {
-		this._openPopup();
-		this._fillPopupImage();
+		this._handleOpenImagePopup(this._name, this._imageLink);
 	}
 	
 	_setLike() {
@@ -27,7 +26,7 @@ export class Card {
 	
 	_addListeners() {
 		//	изображение
-		this._element.querySelector('.element__place').addEventListener('click', () => {
+		this._img.addEventListener('click', () => {
 			this._openCard();
 		});
 		//	помойка
@@ -43,7 +42,9 @@ export class Card {
 	generateCard() {
 		this._element = this._getTemplate();
 		this._likeButton = this._element.querySelector('.element__like');
-		this._element.querySelector('.element__place').src = this._imageLink;
+		this._img = this._element.querySelector('.element__place');
+		this._img.src = this._imageLink;
+		this._img.alt = this._name;
 		this._element.querySelector('.element__caption').textContent = this._name;
 		this._addListeners();
 		return this._element;
