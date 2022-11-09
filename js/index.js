@@ -78,11 +78,7 @@ const handleOpenImagePopup = (name, link) => {
 }
 
 initialCards.forEach((elem) => {
-	const newCard = new Card(
-		elem.name,
-		elem.link,
-		tmpltSelector,
-		() => handleOpenImagePopup(elem.name, elem.link));
+	const newCard = new Card( elem.name,  elem.link, tmpltSelector, handleOpenImagePopup);
 	renderCard(newCard.generateCard());
 });
 
