@@ -13,6 +13,8 @@ export class FormValidator {
 	}
 	
 	toggleSubmitState() {
+		//const submitButton = this._validatedForm.querySelector(this._settings.submitButtonSelector);
+		
 		if (this._hasInvalidInput()){
 			this._submitButton.classList.add(this._settings.inactiveButtonClass);
 			this._submitButton.disabled = true;

@@ -123,7 +123,7 @@ const submitAddCardForm = (evt) => {
 		modalAddCardName.value,
 		modalAddCardLink.value,
 		tmpltSelector,
-		handleOpenImagePopup);
+		handleOpenImagePopup);//() => handleOpenImagePopup(modalAddCardName.value, modalAddCardLink.value));
 	renderCard(card.generateCard(true), true);
 	closePopup(popupAddCard);
 }
