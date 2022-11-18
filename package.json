@@ -1,0 +1,39 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "Проектная работа №8\r Проект \"Место\"\r Сайт об интересных местах. Файловая структура БЭМ (Nested), шрифт Inter, адаптивный дизайн. Реализованы основы работы с DOM, валидация форм,\r добавлены классы Card и FormValidator. Класс Card создаёт карточку с текстом и ссылкой на изображение. Для каждой карточки создается экхемпляр класса Card.\r Класс FormValidator, который настраивает валидацию полей формы. Для каждой проверяемой формы создается экземпляр класса FormValidator.\r Так же реализованы отдельные классы Popup, PopupWithForm, PopupWithImage, UserInfo.\r Технологии HTML, CSS, JAVASCRIPT, webpack",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EShip22/mesto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EShip22/mesto/issues"
+  },
+  "homepage": "https://github.com/EShip22/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.2",
+    "cssnano": "^5.1.14",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.0",
+    "postcss-loader": "^7.0.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "core-js": "^3.26.1"
+  }
+}

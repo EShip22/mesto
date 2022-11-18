@@ -1,10 +1,10 @@
 export class Card {
 
-	constructor(name, imageLink, tmpltSelector, handleOpenImagePopup) {
+	constructor(name, imageLink, tmpltSelector, handleCardClick) {
 		this._name = name;
 		this._imageLink = imageLink;
 		this._template = document.querySelector(tmpltSelector).content.querySelector('.element');
-		this._handleOpenImagePopup = handleOpenImagePopup;
+		this._handleCardClick = handleCardClick;
 	}
 
 	_getTemplate() {
@@ -17,7 +17,7 @@ export class Card {
 	}
 	
 	_openCard() {
-		this._handleOpenImagePopup(this._name, this._imageLink);
+		this._handleCardClick(this._name, this._imageLink);
 	}
 	
 	_setLike() {

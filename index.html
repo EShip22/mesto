@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-  <link rel="stylesheet" href="./pages/index.css">
+  <!--<link rel="stylesheet" href="./pages/index.css"> -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место</title>
@@ -10,11 +10,11 @@
 
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="./images/mesto.svg" alt="место"/>
+    <img class="header__logo" src="<%=require('./images/mesto.svg')%>" alt="место"/>
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="./images/Avatar.png" alt="Кусто"/>
+      <img class="profile__avatar" src="<%=require('./images/Avatar.png')%>" alt="Кусто"/>
       <div class="profile-info">
         <h1 class="profile-info__header">Жак-Ив Кусто</h1>
         <button aria-label="редактировать" class="profile-info__edit-button" type="button"></button>
@@ -55,7 +55,7 @@
   </div>
   <div class="popup popup_add-card">
     <div class="popup__container">
-      <button aria-label="добавить" class="popup__close popup__close_type_add" type="button"></button>
+      <button aria-label="закрыть" class="popup__close popup__close_type_add" type="button"></button>
       <form class="popup__form popup__form_type_add" name="add-card-form">
         <h2 class="popup__header">Новое место</h2>
         <input class="popup__input" id="caption-input" type="text" placeholder="Название" name="field_caption" required minlength="2" maxlength="30"/>
@@ -74,7 +74,7 @@
     </div>
   </div>
   
-  <script type="module" src="./js/index.js"></script>
+  <!--<script type="module" src="./js/index.js"></script>-->
 
 </body>
 
