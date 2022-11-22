@@ -2,13 +2,22 @@
 <html lang="ru">
 
 <head>
-  <!--<link rel="stylesheet" href="./pages/index.css"> -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место</title>
 </head>
 
 <body class="page">
+  <template class="element-template">
+    <div class="element">
+      <button aria-label="удалить" class="element__trash" type="button"></button>
+      <img class="element__place"/>
+      <div class="element__title">
+        <h2 class="element__caption"></h2>
+        <button aria-label="лайк" class="element__like" type="button"></button>
+      </div>
+    </div>
+  </template>
   <header class="header">
     <img class="header__logo" src="<%=require('./images/mesto.svg')%>" alt="место"/>
   </header>
@@ -23,16 +32,6 @@
       <button aria-label="добавить" class="profile__add-button" type="button"></button>
     </section>
     <section class="elements">
-      <template class="element-template">
-        <div class="element">
-          <button aria-label="удалить" class="element__trash" type="button"></button>
-          <img class="element__place"/>
-          <div class="element__title">
-            <h2 class="element__caption"></h2>
-            <button aria-label="лайк" class="element__like" type="button"></button>
-          </div>
-        </div>
-      </template>
     </section>
   </main>
   <footer class="footer">
@@ -74,8 +73,6 @@
     </div>
   </div>
   
-  <!--<script type="module" src="./js/index.js"></script>-->
-
 </body>
 
 </html>
