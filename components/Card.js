@@ -49,8 +49,4 @@ export class Card {
 		this._addListeners();
 		return this._element;
 	}
-	
-	static createCard(name, link, tmpltSelector, handleCardClick) {
-		return new Card(name, link, tmpltSelector, handleCardClick);
-	}
 }

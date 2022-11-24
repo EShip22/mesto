@@ -5,7 +5,7 @@ import {Popup} from '../components/Popup.js';
 import {PopupWithImage} from '../components/PopupWithImage.js';
 import {PopupWithForm} from '../components/PopupWithForm.js';
 import {UserInfo} from '../components/UserInfo.js';
-import * as constants from '../components/Constants.js';
+import * as constants from '../utils/constants.js';
 import '../pages/index.css';
 
 const settings = constants.settings;
@@ -19,7 +19,7 @@ const handleCardClick = (name, link) => {
 }
 
 const createCard = (name, link, tmpltSelector, handleCardClick) => {
-	return new Card(name, link, tmpltSelector, handleCardClick);
+	return new Card(name, link, tmpltSelector, handleCardClick).generateCard();
 }
 
 const userInfo = new UserInfo({
@@ -27,35 +27,34 @@ const userInfo = new UserInfo({
 	userActivitySelector: '.profile-info__description'
 });
 
-const submitForm = (formValues) => {
-	/*Если форма добавления карточки, то создаем и рендерим ее, а если изменение профиля, то вносим изменения в профиль*/
-	if ((formValues.field_caption && formValues.field_link)) {
-		const card = Card.createCard(
-			formValues.field_caption,
-			formValues.field_link,
-			tmpltSelector,
-			handleCardClick
-		);
-		section.addItem(card.generateCard(), true);
-	} else if (formValues.field_name && formValues['field_activity-category']) {
-		userInfo.setUserInfo(formValues.field_name, formValues['field_activity-category']);
-	}
+const submitAddCardForm = (formValues) => {
+	const card = createCard(
+		formValues.fieldCaption,
+		formValues.fieldLink,
+		tmpltSelector,
+		handleCardClick
+	);
+	section.addItem(card, true);
+}
+
+const submitEditProfileForm = (formValues) => {
+	userInfo.setUserInfo(formValues.fieldName, formValues['fieldActivityCategory']);
 }
 
 const section = new Section({
 	items: constants.initialCards, 
 	renderer: (card) => {
-		const newCard = Card.createCard(card.name, card.link, tmpltSelector, handleCardClick);
-		section.addItem(newCard.generateCard())
+		const newCard = createCard(card.name, card.link, tmpltSelector, handleCardClick);
+		section.addItem(newCard);
 	}}, '.elements');
 section.renderAll();
 //
 //	формы, попапы с формой, валидация форм
 //
-const popupAddCard = new PopupWithForm('.popup_add-card', submitForm, settings);
+const popupAddCard = new PopupWithForm('.popup_add-card', submitAddCardForm, settings);
 popupAddCard.setEventListeners();
 
-const popupEditProfile = new PopupWithForm('.popup_edit-profile', submitForm, settings);
+const popupEditProfile = new PopupWithForm('.popup_edit-profile', submitEditProfileForm, settings);
 popupEditProfile.setEventListeners();
 
 const formAddCard = document.querySelector('.popup__form_type_add');

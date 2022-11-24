@@ -19,8 +19,10 @@ export class PopupWithForm extends Popup {
 	}
 	
 	setInputValues(inputValues, settings) {
-		this._form.querySelector(`${settings.inputSelector}_field_name`).value = inputValues.userName;
-		this._form.querySelector(`${settings.inputSelector}_field_activity-category`).value = inputValues.userActivity;
+		this._formInputList.forEach((input) => {
+			const elem = inputValues.find(item => item.inputName == input.name);
+			input.value = elem.value;
+		});
 	}
 	
 	setEventListeners() {
@@ -40,3 +42,4 @@ export class PopupWithForm extends Popup {
 		}
 	}
 }
+
