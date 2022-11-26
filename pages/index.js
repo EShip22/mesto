@@ -38,7 +38,7 @@ const submitAddCardForm = (formValues) => {
 }
 
 const submitEditProfileForm = (formValues) => {
-	userInfo.setUserInfo(formValues.fieldName, formValues['fieldActivityCategory']);
+	userInfo.setUserInfo(formValues.name, formValues.description);
 }
 
 const section = new Section({
@@ -51,7 +51,7 @@ section.renderAll();
 //
 //	формы, попапы с формой, валидация форм
 //
-const popupAddCard = new PopupWithForm('.popup_add-card', submitAddCardForm, settings);
+const popupAddCard = new PopupWithForm('.popup_add-card', submitAddCardForm, settings, true);
 popupAddCard.setEventListeners();
 
 const popupEditProfile = new PopupWithForm('.popup_edit-profile', submitEditProfileForm, settings);
@@ -72,7 +72,7 @@ btnOpenEditProfilePopup.addEventListener('click', () => {
 	const userInfoFields = userInfo.getUserInfo();
 	formEditProfileValidator.clearInputErrors();
 	popupEditProfile.open();
-	popupEditProfile.setInputValues(userInfoFields, settings);
+	popupEditProfile.setInputValues(userInfoFields);
 });
 
 const btnOpenAddCardPopup = document.querySelector('.profile__add-button');
