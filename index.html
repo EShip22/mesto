@@ -14,7 +14,10 @@
       <img class="element__place"/>
       <div class="element__title">
         <h2 class="element__caption"></h2>
-        <button aria-label="лайк" class="element__like" type="button"></button>
+        <div class="like-container">
+          <button aria-label="лайк" class="like-container__like" type="button"></button>
+          <p class="like-container__count">0</p>
+        </div>
       </div>
     </div>
   </template>
@@ -23,11 +26,12 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/Avatar.png')%>" alt="Кусто"/>
+      <img class="profile__avatar"/>
+      <div class="profile__avatar profile__avatar_overlay"></div>
       <div class="profile-info">
-        <h1 class="profile-info__header">Жак-Ив Кусто</h1>
+        <h1 class="profile-info__header"></h1>
         <button aria-label="редактировать" class="profile-info__edit-button" type="button"></button>
-        <p class="profile-info__description">Исследователь океана</p>
+        <p class="profile-info__description"></p>
       </div>
       <button aria-label="добавить" class="profile__add-button" type="button"></button>
     </section>
@@ -48,7 +52,18 @@
         <input class="popup__input popup__input_field_activity-category"
           type="text" placeholder="Вид деятельности" id="activity-input" name="description" required minlength="2" maxlength="200"/>
         <p class="popup__input-error" id="activity-input-error"></p>
-        <input class="popup__save" type="submit" value="Сохранить"/>
+        <input class="popup__save popup__save-edit-profile" type="submit" value="Сохранить"/>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_edit-avatar">
+    <div class="popup__container">
+      <button aria-label="закрыть" class="popup__close popup__close_type_edit-avatar" type="button"></button>
+      <form class="popup__form popup__form_type_edit-avatar" name="edit-avatar-form">
+        <h2 class="popup__header">Обновить аватар</h2>
+        <input class="popup__input popup__input_field_avatar-link" id="avatar-link-input"
+          type="text" placeholder="Ссылка на аватар" name="avatarLink" required />
+        <input class="popup__save popup__save-edit-avatar" type="submit" value="Сохранить"/>
       </form>
     </div>
   </div>
@@ -61,7 +76,7 @@
         <p class="popup__input-error" id="caption-input-error"></p>
         <input class="popup__input" id="link-input" type="url" placeholder="Ссылка на картинку" name="fieldLink" required/>
         <p class="popup__input-error" id="link-input-error"></p>
-        <input class="popup__save popup__save_disabled" type="submit" value="Создать" disabled/>
+        <input class="popup__save popup__save-add-card popup__save_disabled" type="submit" value="Создать" disabled/>
       </form>
     </div>
   </div>
@@ -70,6 +85,13 @@
       <button aria-label="закрыть" class="popup__close popup__close_img" type="button"></button>
       <img class="popup__img" src="#" alt=""/>
       <p class="popup__text"></p>
+    </div>
+  </div>
+  <div class="popup popup_del-card">
+    <div class="popup__container-for-del-card">
+      <button aria-label="закрыть" class="popup__close popup__close_img" type="button"></button>
+      <p class="popup__question">Вы уверены?</p>
+      <input class="popup__save" type="button" value="Да" />
     </div>
   </div>
 </body>

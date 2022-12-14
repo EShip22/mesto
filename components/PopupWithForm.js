@@ -36,10 +36,6 @@ export class PopupWithForm extends Popup {
 	
 	close() {
 		super.close();
-		/*if (this._form.name == 'add-card-form') {
-			this._form.querySelector('#caption-input').value = '';
-			this._form.querySelector('#link-input').value = '';
-		}*/
 		if (this._withResetAfterClose) {
 			this._formInputList.forEach((input) => {
         input.value = "";

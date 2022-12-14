@@ -11,6 +11,7 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container-for-img/popup__container-for-img.css);
+@import url(../blocks/popup/__container-for-del-card/popup__container-for-del-card.css);
 @import url(../blocks/popup/__container/_img/popup__container_img.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/_show-image/popup_show-image.css);
@@ -22,6 +23,7 @@
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__save/popup__save.css);
 @import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__question/popup__question.css);
 @import url(../blocks/popup/__input/_type_error/popup__input_type_error.css);
 @import url(../blocks/popup/__input-error/popup__input-error.css);
 @import url(../blocks/popup/__save/_disabled/popup__save_disabled.css);
@@ -30,6 +32,7 @@
 /*profile*/
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__avatar/_overlay/profile__avatar_overlay.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 /*profile_info*/
 @import url(../blocks/profile-info/profile-info.css);
@@ -43,9 +46,13 @@
 @import url(../blocks/element/__title/element__title.css);
 @import url(../blocks/element/__place/element__place.css);
 @import url(../blocks/element/__caption/element__caption.css);
-@import url(../blocks/element/__like/element__like.css);
 @import url(../blocks/element/__trash/element__trash.css);
-@import url(../blocks/element/__like/_enabled/element__like_enabled.css);
+@import url(../blocks/element/__trash/_show/element__trash_show.css);
+/*like-container*/
+@import url(../blocks/like-container/like-container.css);
+@import url(../blocks/like-container/__count/like-container__count.css);
+@import url(../blocks/like-container/__like/like-container__like.css);
+@import url(../blocks/like-container/__like/_enabled/like-container__like_enabled.css);
 /*footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);

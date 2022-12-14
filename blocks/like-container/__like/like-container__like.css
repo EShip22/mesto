@@ -1,4 +1,4 @@
-.element__like {
+.like-container__like {
 	transition: opacity 0.4s linear;
 	min-width: 22px;
 	min-height: 19px;
@@ -10,7 +10,7 @@
 	padding: 0;
 	margin-top: 5px;
 }
-.element__like:hover {
+.like-container__like:hover {
 	opacity: 0.5;
 	cursor: pointer;
 }

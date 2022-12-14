@@ -3,11 +3,14 @@
 	height: 120px;
 	object-fit: fill;
 	object-position: center;
+	border-radius: 50%;
+	position: relative;
+	display: block;
 }
+
 @media screen and (max-width:666px) {
-    .profile__avatar {
-		display: block;
+	.profile__avatar {
 		margin-right: auto;
 		margin-left: auto;
-    }
-} 
+	}
+}

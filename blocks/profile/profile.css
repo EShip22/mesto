@@ -3,6 +3,7 @@
 	margin-top: 40px;
 	max-width: 100%;
 	margin-bottom: 51px;
+	position: relative;
 }
 
 @media screen and (max-width:666px) {
