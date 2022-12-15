@@ -5,6 +5,13 @@ class Api {
 		this._cardUrl = `${this._baseUrl}/cards`;
 		this._authToken = options.headers.authorization
   }
+	
+	_getResponseData(res) {
+			if (!res.ok) {
+					return Promise.reject(`Ошибка: ${res.status}`); 
+			}
+			return res.json();
+	} 
 
 	getInitialCards() {
 		return fetch(this._cardUrl, {
@@ -13,13 +20,11 @@ class Api {
 			}
 		})
 			.then(res => {
-				if (res.ok) {
-					return res.json();
-				}
-				return Promise.reject(`Ошибка: ${res.status}`);
+				return this._getResponseData(res);
 			})
-			.catch((err) => console.log(err));
 	}
+	
+
 	
 	addCard(cardName, cardLink) {
 		return fetch(api._cardUrl, {
@@ -32,16 +37,13 @@ class Api {
 				name: cardName,
 				link: cardLink
 			})
-		}).then (res => {
-				if (res.ok) {
-					return res.json();
-				}
-				return Promise.reject(`Ошибка: ${res.status}`);
-			})
-			.catch((err) => console.log(err));
+		})
+			.then(res => {
+				return this._getResponseData(res);
+			});
 	}
 	
-	delCard(id) {
+	delCardQuery(id) {
 		return fetch(`${api._cardUrl}/${id}`, {
 			method: 'DELETE',
 			headers: {
@@ -50,12 +52,8 @@ class Api {
 			}
 		})
 			.then(res => {
-				if (res.ok) {
-					return res.json();
-				}
-				return Promise.reject(`Ошибка: ${res.status}`);
-			})
-			.catch((err) => console.log(err));
+				return api._getResponseData(res);
+			});
 	}
 	
 
@@ -68,12 +66,8 @@ class Api {
 			}
 		})
 			.then(res => {
-				if (res.ok) {
-					return res.json();
-				}
-				return Promise.reject(`Ошибка: ${res.status}`);
-			})
-			.catch((err) => console.log(err));
+				return this._getResponseData(res);
+			});
 	}
 
 	setUserInfo(formValues) {
@@ -89,12 +83,8 @@ class Api {
 			})
 		})
 			.then(res => {
-				if (res.ok) {
-					return res.json();
-				}
-				return Promise.reject(`Ошибка: ${res.status}`);
-			})
-			.catch((err) => console.log(err));
+				return this._getResponseData(res);
+			});
 	}
 	
 	addLike(cardId) {
@@ -105,13 +95,9 @@ class Api {
 				'Content-Type': 'application/json'
 			}
 		})
-			.then(res => {
-				if (res.ok) {
-					return res.json();
-				}
-				return Promise.reject(`Ошибка: ${res.status}`);
-			})
-			.catch((err) => console.log(err));
+			.then((res) => {
+				return this._getResponseData(res);
+			});
 	}
 	
 	delLike(cardId) {
@@ -123,12 +109,8 @@ class Api {
 			}
 		})
 			.then(res => {
-				if (res.ok) {
-					return res.json();
-				}
-				return Promise.reject(`Ошибка: ${res.status}`);
-			})
-			.catch((err) => console.log(err));
+				return this._getResponseData(res);
+			});
 	}
 	
 	setUserAvatar(urlAvatar) {
@@ -143,12 +125,8 @@ class Api {
 			})
 		})
 			.then(res => {
-				if (res.ok) {
-					return res.json();
-				}
-				return Promise.reject(`Ошибка: ${res.status}`);
-			})
-			.catch((err) => console.log(err));
+				return this._getResponseData(res);
+			});
 	}
 	
 }

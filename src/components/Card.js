@@ -1,17 +1,18 @@
 export class Card {
 
-	constructor(props, tmpltSelector, handleCardClick, openDelCardPopup, addLike, delLike) {
+	constructor(props, tmpltSelector, handleCardClick, openDelCardPopup, setLike, addLike, delLike) {
 		this._name = props.name;
 		this._imageLink = props.link;
-		this._likes = props.likes;
+		this.likes = props.likes;
 		this._id = props.id;
 		this._userId = props.userId;
 		this._ownerId = props.ownerId;
-		this.isCardLikedByMe = this._likes?.find(user => this._userId === user._id) ? true : false;
 		
+		this.isCardLikedByMe = this.likes?.find(user => this._userId === user._id) ? true : false;
 		this._template = document.querySelector(tmpltSelector).content.querySelector('.element');
 		this._handleCardClick = handleCardClick;
 		this._openDelCardPopup = openDelCardPopup;
+		this._setLike = setLike;
 		this._addLike = addLike;
 		this._delLike = delLike;
 	}
@@ -25,6 +26,10 @@ export class Card {
 		this._handleCardClick(this._name, this._imageLink);
 	}
 	
+	delCard(elem) {
+		elem.remove(); 
+	}
+	
 	_addListeners() {
 		//	изображение
 		this._img.addEventListener('click', () => {
@@ -32,38 +37,23 @@ export class Card {
 		});
 		//	помойка
 		this._element.querySelector('.element__trash').addEventListener('click', () => {
-			this._openDelCardPopup(this._element, this._id);
+			this._openDelCardPopup(this._element, this._id, this.delCard)
 		});
 		//	лайк
 		this._likeButton.addEventListener('click', () => {
-			if (this.isCardLikedByMe) {
-				this._delLike(this._id)
-					.then((res) => {
-						this._removeLikeIcon();
-						this._setLikeCnt(res.likes.length);
-						this.isCardLikedByMe = false;
-					})
-			} else {
-
-				this._addLike(this._id)
-					.then((res) => {
-						this._addLikeIcon();
-						this.isCardLikedByMe = true;
-						this._setLikeCnt(res.likes.length);
-					})
-			}
+			this._setLike(this._id, this, this.isCardLikedByMe);
 		});
 	}
 	
-	_addLikeIcon() {
+	addLikeIcon() {
 		this._likeButton.classList.add('like-container__like_enabled');
 	}
-	_removeLikeIcon() {
+	removeLikeIcon(card) {
 		this._likeButton.classList.remove('like-container__like_enabled');
 	}
 	
-	_setLikeCnt(cnt) {
-		this._element.querySelector('.like-container__count').textContent = cnt; 
+	setLikeCnt(cnt) {
+		this._likeCntElement.textContent = cnt;
 	}
 	
 	generateCard() {
@@ -72,14 +62,15 @@ export class Card {
 		this._img = this._element.querySelector('.element__place');
 		this._img.src = this._imageLink;
 		this._img.alt = this._name;
-		this._element.querySelector('.like-container__count').textContent = this._likes?.length ?? 0;
+		this._element.querySelector('.like-container__count').textContent = this.likes?.length ?? 0;
 		this._element.querySelector('.element__caption').textContent = this._name;
+		this._likeCntElement = this._element.querySelector('.like-container__count');
 		this._addListeners();
 		if (this._userId === this._ownerId) {
 			this._element.querySelector('.element__trash').classList.add('element__trash_show');
 		}
 		if (this.isCardLikedByMe) {
-			this._addLikeIcon();
+			this.addLikeIcon();
 		}
 		return this._element;
 	}

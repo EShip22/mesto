@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: { main: './pages/index.js' },
+  entry: { main: './src/pages/index.js' },
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'main.js',
@@ -29,7 +29,7 @@ module.exports = {
 					test: /\.(png|svg|jpg|jpeg|gif)$/,
 					type: 'asset/resource',
 					generator: {
-							filename: 'images/[name].[hash][ext]',
+							filename: './src/images/[name].[hash][ext]',
 					}
 			},
 			{
