@@ -23,35 +23,19 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 	})
 	.catch((err) => console.log(err));
 
-const setLike = (cardId, card, isCardLikedByMe) => {
-	if (card.isCardLikedByMe) {
+const setLike = (cardId, card) => {
+	if (card.isCardLikedByMe()) {
 		api.delLike(cardId)
-			.then((res) => {
-				card.removeLikeIcon();
-				card.likes = res.likes;
-				card.isCardLikedByMe = false;
-				card.setLikeCnt(res.likes.length);
-			})
+			.then(res => card.setLikes(res.likes))
 			.catch((err) => console.log(err));
 	} else {
 		api.addLike(cardId)
-			.then((res) => {
-				card.addLikeIcon();
-				card.likes = res.likes;
-				card.setLikeCnt(res.likes.length);
-				card.isCardLikedByMe = true;
-			})
+			.then(res => card.setLikes(res.likes))
 			.catch((err) => console.log(err));
 	}
 }
 
-const addLike = (cardId) => {
-	api.addLike(cardId);
-}
 
-const delLike = (cardId) => {
-	api.delLike(cardId);
-}
 
 const submitAddCardForm = (formValues) => {
 	popupAddCard.setSaveBtnValue('Сохранение...');
@@ -68,9 +52,7 @@ const submitAddCardForm = (formValues) => {
 				tmpltSelector,
 				handleCardClick,
 				openDelCardPopup,
-				setLike,
-				addLike,
-				delLike
+				setLike
 			);
 
 			section.addItem(card, true);
@@ -115,8 +97,20 @@ const handleCardClick = (name, link) => {
 	popupWithImage.open(link, name);
 }
 
-const openDelCardPopup = (cardElem, id, delCard) => {
-	popupDelCard.open(cardElem, id, delCard);
+const openDelCardPopup = (card, id, delCardQuery) => {
+	popupDelCard.open(
+		card,
+		id,
+		() => {
+			api.delCardQuery(id)
+				.then((res) => {
+					card.delCard();
+					popupDelCard.close();
+				})
+				.catch((err) => console.log(err))
+		}
+
+	);
 }
 
 const createCard = (props) => {
@@ -132,9 +126,7 @@ const createCard = (props) => {
 		tmpltSelector,
 		handleCardClick,
 		openDelCardPopup,
-		setLike,
-		addLike,
-		delLike).generateCard();
+		setLike).generateCard();
 		return newCard;
 }
 
@@ -157,9 +149,7 @@ const section = new Section(
 			tmpltSelector,
 			handleCardClick,
 			openDelCardPopup,
-			setLike,
-			addLike,
-			delLike
+			setLike
 		);
 		section.addItem(newCard);
 	}, '.elements');
@@ -173,10 +163,7 @@ popupAddCard.setEventListeners();
 const popupEditProfile = new PopupWithForm('.popup_edit-profile', submitEditProfileForm, settings);
 popupEditProfile.setEventListeners();
 
-const popupDelCard = new PopupDelCard(
-	'.popup_del-card',
-	api.delCardQuery
-);
+const popupDelCard = new PopupDelCard('.popup_del-card');
 popupDelCard.setEventListeners();
 
 const popupEditAvatar = new PopupWithForm('.popup_edit-avatar', submitEditAvatarForm, settings);

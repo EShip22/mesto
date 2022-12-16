@@ -38,7 +38,7 @@ export class PopupWithForm extends Popup {
 	}
 	
 	setSaveBtnValue(value) {
-		this._popup.querySelector(this._settings.submitButtonSelector).value = value;
+		this._submitButton.value = value;
 	}
 }
 

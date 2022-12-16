@@ -24,8 +24,6 @@ class Api {
 			})
 	}
 	
-
-	
 	addCard(cardName, cardLink) {
 		return fetch(api._cardUrl, {
 			method: 'POST',
@@ -56,8 +54,6 @@ class Api {
 			});
 	}
 	
-
-
 	getUserInfo() {
 		return fetch(this._usersUrl, {
 			headers: {
